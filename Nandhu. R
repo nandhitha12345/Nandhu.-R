@@ -1,0 +1,43 @@
+from functools import reduce
+
+# 1. Function with default and keyword arguments
+def greet(name, greeting="Hello", punctuation="!"):
+    print(f"{greeting}, {name}{punctuation}")
+
+greet("Alice")
+greet("Bob", greeting="Hi")
+greet("Charlie", punctuation="!!!", greeting="Hey")
+
+# 2. Use of *args and **kwargs
+def display_info(*args, **kwargs):
+    print("Args:", args)
+    print("Kwargs:", kwargs)
+
+display_info(10, 20, 30, name="John", age=25)
+
+# 3. Recursive function (factorial)
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print("Factorial of 5:", factorial(5))
+
+# 4. Lambda, map(), filter(), and reduce()
+
+# Lambda
+square = lambda x: x ** 2
+print("Square of 4 using lambda:", square(4))
+
+# map() - square of numbers in list
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers using map():", squared)
+
+# filter() - filter even numbers
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print("Even numbers using filter():", evens)
+
+# reduce() - product of numbers
+product = reduce(lambda x, y: x * y, numbers)
+print("Product of numbers using reduce():", product)
